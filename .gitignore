@@ -1,0 +1,9 @@
+# Ignore Express app files
+node_modules/
+/dist
+.env
+
+# Ignore React app files
+/client/node_modules
+/client/build
+/client/.env
