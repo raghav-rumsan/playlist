@@ -1,8 +1,9 @@
 const router = require("express").Router();
+const { middleware1 } = require("../../middlewares/middleware-one");
 const playlistController = require("./playlist.controller");
 
 // Read
-router.get("/", async (req, res) => {
+router.get("/", middleware1, async (req, res) => {
   const results = await playlistController.list();
   res.json({ data: results });
 });
@@ -20,7 +21,7 @@ router.get("/:id", async (req, res) => {
 });
 
 // update by id
-router.put("/:id", async (req, res) => {
+router.put("/:id", middleware1, async (req, res) => {
   const results = await playlistController.updateById(req.params.id, req.body);
   res.json({ data: results });
 });
